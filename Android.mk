@@ -49,7 +49,15 @@ LOCAL_PROPRIETARY_MODULE := true
 include $(LOCAL_PATH)/vnd_buildcfg.mk
 
 include $(BUILD_SHARED_LIBRARY)
-
+ifeq ($(TARGET_PRODUCT), sabresd_6sx)
+	include $(LOCAL_PATH)/conf/fsl/sabresd_6sx/Android.mk
+endif
+ifeq ($(TARGET_PRODUCT), sabresd_6dq)
+	include $(LOCAL_PATH)/conf/fsl/sabresd_6dq/Android.mk
+endif
+ifeq ($(TARGET_PRODUCT), sabresd_7d)
+    include $(LOCAL_PATH)/conf/fsl/sabresd_7d/Android.mk
+endif
 ifeq ($(TARGET_PRODUCT), full_maguro)
     include $(LOCAL_PATH)/conf/samsung/maguro/Android.mk
 endif
