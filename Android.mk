@@ -21,7 +21,7 @@ LOCAL_SHARED_LIBRARIES := \
         libcutils \
         liblog
 
-LOCAL_MODULE := libbt-vendor
+LOCAL_MODULE := libbt-vendor-broadcom
 LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_OWNER := broadcom
@@ -30,6 +30,9 @@ LOCAL_PROPRIETARY_MODULE := true
 include $(LOCAL_PATH)/vnd_buildcfg.mk
 
 include $(BUILD_SHARED_LIBRARY)
+ifeq ($(TARGET_PRODUCT), sabresd_6sx)
+	include $(LOCAL_PATH)/conf/fsl/sabresd_6sx/Android.mk
+endif
 ifeq ($(TARGET_PRODUCT), sabresd_6dq)
 	include $(LOCAL_PATH)/conf/fsl/sabresd_6dq/Android.mk
 endif
